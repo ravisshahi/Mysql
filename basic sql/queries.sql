@@ -305,6 +305,27 @@ WHERE
      lastName LIKE '%son'
 ORDER BY firstName;
 
+---
+
+"tho%"
+'%son'
+'%att%'
+'_r%'
+'a_%'
+'t%n'
+
+---in operator
+SELECT 
+     firstName,
+     lastName,
+     officeCode
+FROM
+     employees
+WHERE  
+     officeCode IN(1, 2, 3)
+ORDER BY 
+      officeCode;
 
 
+-------
 

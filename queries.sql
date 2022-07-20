@@ -181,7 +181,7 @@ ORDER BY
    contactLastName
 
 
-
+------------
 SELECT
     jobTitle
 FROM
@@ -201,7 +201,7 @@ FROM
     orderdetail
 ORDER BY
  quantityOrdered * priceEach DESC ;
-
+--------------------
  SELECT
     OrderNumber,
     orderLineNumber,
@@ -234,11 +234,11 @@ ORDER BY FIELD (
       "Disputed",
       "shipped"
 );
-
+-----
 
 SELECT 
    firstName,
-   LastName,
+   lastName,
    reportsto,
 FROM
    employees
@@ -260,13 +260,71 @@ ORDER BY reportT0;
 
  SELECT 
      firstName,
-     LastName,
+     lastName,
      jobtitles,
 FROM
      employees
 WHERE  
      jobTitle="Sales Rep" AND
      officeCode=1;
+  ------
+SELECT 
+     firstName,
+     lastName,
+     jobtitles,
+FROM
+     employees
+WHERE  
+     jobTitle="Sales Rep" OR
+     officeCode=1;
+ORDER BY
+      officeCode,
+      jobTitle;
+
+-------
+
+SELECT 
+     firstName,
+     lastName,
+     officeCode
+FROM
+     employees
+WHERE  
+     officeCode BETWEEN 1 AND 1
+ORDER BY officeCode;
+----
+
+--like clause
+
+SELECT 
+     firstName,
+     lastName
+FROM
+     employees
+WHERE  
+     lastName LIKE '%son'
+ORDER BY firstName;
+
+---
+
+"tho%"
+'%son'
+'%att%'
+'_r%'
+'a_%'
+'t%n'
+
+---in operator
+SELECT 
+     firstName,
+     lastName,
+     officeCode
+FROM
+     employees
+WHERE  
+     officeCode IN(1, 2, 3)
+ORDER BY 
+      officeCode;
 
 
-
+-------
