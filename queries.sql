@@ -882,7 +882,7 @@ BEGIN
      SELECT COUNT(orderNumber)
      INTO total
      FROM orders
-     WHERE status = orderStatus;.
+     WHERE status = orderStatus;
 END$$
 
 DELIMITER ;
@@ -892,9 +892,39 @@ SELECT@total;
 
 
 
+CALL GetOrderCountByStatus('in process', @total);
+SELECT@total AS total_in_process;
+
+
+--------------------------------------------
+
+
+SHOW PROCEDURE STATUS;
+
+SHOW PROCEDURE STATUS WHERE db ='classiccompany';
+
+SHOW PROCEDURE STATUS LIKE'%pattern%'
+SHOW PROCEDURE STATUS LIKE'%Order%'
 
 
 
+
+/*User management
+----------------------------------------
+
+---------------------------
+*/
+
+
+$> mysql --user=finley --password=password db_name
+$> mysql -u finley -ppassword db_name
+
+
+
+
+
+SHOW GRANTS FOR 'joe'@'office.example.com';
+SHOW GRANTS FOR 'joe'@'home.example.com';
 
 
 
