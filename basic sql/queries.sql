@@ -329,3 +329,105 @@ ORDER BY
 
 -------
 
+SELECT
+     customerNumber,
+     customerName,
+     creditLimit
+FROM 
+     customers
+ORDER BY creditLimit DESC
+LIMIT 5;          ---- LIMIT MEAN ONLY TOP 5 WILL COM
+
+-------
+
+SELECT                                           
+     customerNumber,
+     customerName,
+     creditLimit
+FROM 
+     customers
+ORDER BY creditLimit ASC
+LIMIT 6; 
+
+-----
+
+SELECT
+     customerNumber,
+     customerName,
+     creditLimit
+FROM 
+     customers
+ORDER BY 
+          creditLimit,
+          customerNumber
+LIMIT 6; 
+
+--------------
+
+SELECT COUNT customerNumber FROM customers;
+----------------
+
+SELECT                                           
+     customerNumber,
+     customerName
+FROM 
+     customers
+ORDER BY customerName 
+limit 10;
+-----
+SELECT DISTINCT
+      state 
+FROM
+      customers;
+ -------------------
+
+SELECT DISTINCT
+      productLine 
+FROM
+      products
+WHERE productLine is NOT NULL;
+----------------------
+
+SELECT 
+     CONCAT_WS(' ', lastName,firstName) AS 'Full Name'
+     FROM
+     employees;
+------------------------
+SELECT 
+     CONCAT_WS(',', lastName,firstName) AS 'Full Name'
+     FROM
+     employees;
+
+--------------------------
+SELECT SUM(priceEach)
+FROM orderdetails;
+
+     SELECT(priceEach*quantityOrdered) AS total from orderdetails(priceEach*quantityOrdered) WHERE total>10000
+
+--------------
+
+
+SELECT 
+    orderNumber 'OrderNo'
+    SUM(priceEach * quantityOrdered) total
+FROM 
+    orderdetails    
+GROUP BY
+   orderNumber
+HAVING
+    total > 60000;    
+----------------------------------------
+SELECT
+      orderNumber
+FROM 
+      orderdetails
+CROSS JOIN
+SELECT
+      shippedDate
+FROM
+     orders
+------------------
+select *  from products INNER JOIN orderdetails ON products.productCode = orderdetails.productCode ;
+select *  from productlines INNER JOIN products ON productlines.productLine = products.productLine ;
+
+
